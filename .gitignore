@@ -5,15 +5,6 @@
 # Игнорировать временную директорию air
 /tmp/
 
-# Игнорировать модули Go
-/vendor/
-/go.mod
-/go.sum
-
-# Игнорировать файлы сгенерированные protoc
-/internal/proto/*.pb.go
-/internal/proto/*_grpc.pb.go
-
 # Игнорировать файлы .env с секретными данными
 .env
 
