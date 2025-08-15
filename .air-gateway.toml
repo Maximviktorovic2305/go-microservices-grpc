@@ -1,0 +1,21 @@
+# .air-gateway.toml
+# Конфигурационный файл для air, который будет запускать API Gateway.
+
+root = "."
+tmp_dir = "tmp"
+
+[build]
+# Команда для сборки исполняемого файла API Gateway
+cmd = "go build -o ./tmp/api-gateway.exe ./cmd/api-gateway/main.go"
+# Путь к скомпилированному исполняемому файлу
+bin = "./tmp/api-gateway.exe"
+# Расширения файлов для отслеживания изменений
+include_ext = ["go", "tpl", "tmpl", "html"]
+# Директории для отслеживания изменений
+include_dir = ["cmd", "internal"]
+# Директории, которые нужно игнорировать
+exclude_dir = ["tmp", "vendor"]
+
+[log]
+# Показывать время в логах
+time = true

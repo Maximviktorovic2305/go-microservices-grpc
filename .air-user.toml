@@ -1,0 +1,16 @@
+# .air.toml
+# Конфигурационный файл для air, инструмента горячей перезагрузки Go.
+
+root = "."
+tmp_dir = "tmp"
+
+[build]
+cmd = "go build -o ./tmp/user-service.exe ./cmd/user-service/main.go"
+bin = "./tmp/user-service.exe"
+
+include_ext = ["go", "tpl", "tmpl", "html"]
+include_dir = ["cmd", "internal"]
+exclude_dir = ["tmp", "vendor"]
+
+[log]
+time = true

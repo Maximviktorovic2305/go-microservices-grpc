@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+package todo;
+
+option go_package = ".;proto";
+
+import "user.proto"; // Импортируем user.proto для использования его сообщений
+
+message TodoItem {
+  string id = 1;
+  string user_id = 2;
+  string title = 3;
+  bool completed = 4;
+}
+
+service TodoService {
+  rpc CreateTodo (CreateTodoRequest) returns (TodoItem);
+  rpc GetTodos (GetTodosRequest) returns (GetTodosResponse);
+  rpc UpdateTodo (UpdateTodoRequest) returns (TodoItem);
+  rpc DeleteTodo (DeleteTodoRequest) returns (DeleteTodoResponse);
+}
+
+message CreateTodoRequest {
+  string user_id = 1;
+  string title = 2;
+}
+
+message GetTodosRequest {
+  string user_id = 1;
+}
+
+message GetTodosResponse {
+  repeated TodoItem todos = 1;
+}
+
+message UpdateTodoRequest {
+  string id = 1;
+  string user_id = 2;
+  string title = 3;
+  bool completed = 4;
+}
+
+message DeleteTodoRequest {
+  string id = 1;
+  string user_id = 2;
+}
+
+message DeleteTodoResponse {
+  string message = 1;
+}

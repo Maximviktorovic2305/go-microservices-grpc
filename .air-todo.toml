@@ -1,0 +1,13 @@
+# .air-todo.toml
+root = "."
+tmp_dir = "tmp"
+
+[build]
+cmd = "go build -o ./tmp/todo-service.exe ./cmd/todo-service/main.go"
+bin = "./tmp/todo-service.exe"
+include_ext = ["go", "tpl", "tmpl", "html"]
+include_dir = ["cmd", "internal"]
+exclude_dir = ["tmp", "vendor"]
+
+[log]
+time = true
