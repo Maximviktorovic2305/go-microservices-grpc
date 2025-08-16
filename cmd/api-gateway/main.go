@@ -21,7 +21,7 @@ func main() {
 	// Настройка gRPC-клиентов для микросервисов
 	// Клиент для UserService
 	userServiceAddr := fmt.Sprintf("localhost:%d", cfg.UserServicePort)
-	userConn, err := grpc.Dial(userServiceAddr, grpc.WithTransportCredentials(insecure.NewCredentials()))
+	userConn, err := grpc.NewClient(userServiceAddr, grpc.WithTransportCredentials(insecure.NewCredentials()))
 	if err != nil {
 		log.Fatalf("did not connect to user service: %v", err)
 	}
@@ -30,7 +30,7 @@ func main() {
 
 	// Клиент для TodoService
 	todoServiceAddr := fmt.Sprintf("localhost:%d", cfg.TodoServicePort)
-	todoConn, err := grpc.Dial(todoServiceAddr, grpc.WithTransportCredentials(insecure.NewCredentials()))
+	todoConn, err := grpc.NewClient(todoServiceAddr, grpc.WithTransportCredentials(insecure.NewCredentials()))
 	if err != nil {
 		log.Fatalf("did not connect to todo service: %v", err)
 	}

@@ -17,8 +17,8 @@ type Config struct {
 	DBPort          string
 	JWTSecret       string
 	UserServicePort int
-	TodoServicePort int // Добавлено это поле
-	TodoDBName      string // Добавлено это поле
+	TodoServicePort int
+	TodoDBName      string
 }
 
 // LoadConfig reads configuration from environment variables or .env file
@@ -55,7 +55,7 @@ func LoadConfig() *Config {
 		DBPort:          os.Getenv("DB_PORT"),
 		JWTSecret:       os.Getenv("JWT_SECRET"),
 		UserServicePort: userServicePort,
-		TodoServicePort: todoServicePort, // Инициализация нового поля
-		TodoDBName:      os.Getenv("TODO_DB_NAME"), // Инициализация нового поля
+		TodoServicePort: todoServicePort,
+		TodoDBName:      os.Getenv("TODO_DB_NAME"),
 	}
-}
+}                      

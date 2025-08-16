@@ -35,7 +35,7 @@ func main() {
 	log.Println("Database migration for TodoService completed")
 	
 	userServiceAddr := fmt.Sprintf("localhost:%d", cfg.UserServicePort)
-	conn, err := grpc.Dial(userServiceAddr, grpc.WithTransportCredentials(insecure.NewCredentials()))
+	conn, err := grpc.NewClient(userServiceAddr, grpc.WithTransportCredentials(insecure.NewCredentials()))
 	if err != nil {
 		log.Fatalf("did not connect to user service: %v", err)
 	}
